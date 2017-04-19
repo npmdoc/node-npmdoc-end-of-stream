@@ -1,9 +1,14 @@
-# api documentation for  [end-of-stream (v1.4.0)](https://github.com/mafintosh/end-of-stream)  [![npm package](https://img.shields.io/npm/v/npmdoc-end-of-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-end-of-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-end-of-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-end-of-stream)
+# npmdoc-end-of-stream
+
+#### api documentation for  [end-of-stream (v1.4.0)](https://github.com/mafintosh/end-of-stream)  [![npm package](https://img.shields.io/npm/v/npmdoc-end-of-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-end-of-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-end-of-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-end-of-stream)
+
 #### Call a callback when a readable/writable/duplex stream has completed or failed.
 
-[![NPM](https://nodei.co/npm/end-of-stream.png?downloads=true)](https://www.npmjs.com/package/end-of-stream)
+[![NPM](https://nodei.co/npm/end-of-stream.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/end-of-stream)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-end-of-stream/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-end-of-stream_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-end-of-stream/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-end-of-stream/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-end-of-stream/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-end-of-stream/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-end-of-stream/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-end-of-stream/build/screenCapture.npmPackageListing.svg)
 
@@ -17,8 +22,7 @@
 
 {
     "author": {
-        "name": "Mathias Buus",
-        "email": "mathiasbuus@gmail.com"
+        "name": "Mathias Buus"
     },
     "bugs": {
         "url": "https://github.com/mafintosh/end-of-stream/issues"
@@ -51,13 +55,11 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "mafintosh",
-            "email": "mathiasbuus@gmail.com"
+            "name": "mafintosh"
         }
     ],
     "name": "end-of-stream",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/mafintosh/end-of-stream.git"
@@ -68,16 +70,6 @@
     "version": "1.4.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module end-of-stream](#apidoc.module.end-of-stream)
-
-
-
-# <a name="apidoc.module.end-of-stream"></a>[module end-of-stream](#apidoc.module.end-of-stream)
 
 
 

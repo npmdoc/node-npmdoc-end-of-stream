@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "end-of-stream",
-    "description": "api documentation for [end-of-stream (v1.4.0)](https://github.com/mafintosh/end-of-stream) [![npm package](https://img.shields.io/npm/v/npmdoc-end-of-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-end-of-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-end-of-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-end-of-stream)",
+    "description": "#### api documentation for  [end-of-stream (v1.4.0)](https://github.com/mafintosh/end-of-stream)  [![npm package](https://img.shields.io/npm/v/npmdoc-end-of-stream.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-end-of-stream) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-end-of-stream.svg)](https://travis-ci.org/npmdoc/node-npmdoc-end-of-stream)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "end-of-stream": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.1"
+    "version": "0.0.2"
 }
