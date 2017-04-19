@@ -61,12 +61,102 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.end-of-stream">module end-of-stream</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.end-of-stream.end-of-stream">
+            function <span class="apidocSignatureSpan"></span>end-of-stream
+            <span class="apidocSignatureSpan">(stream, opts, callback)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.end-of-stream" id="apidoc.module.end-of-stream">module end-of-stream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.end-of-stream.end-of-stream" id="apidoc.element.end-of-stream.end-of-stream">
+        function <span class="apidocSignatureSpan"></span>end-of-stream
+        <span class="apidocSignatureSpan">(stream, opts, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">end-of-stream = function (stream, opts, callback) {
+	if (typeof opts === &#x27;function&#x27;) return eos(stream, null, opts);
+	if (!opts) opts = {};
+
+	callback = once(callback || noop);
+
+	var ws = stream._writableState;
+	var rs = stream._readableState;
+	var readable = opts.readable || (opts.readable !== false &#x26;&#x26; stream.readable);
+	var writable = opts.writable || (opts.writable !== false &#x26;&#x26; stream.writable);
+
+	var onlegacyfinish = function() {
+		if (!stream.writable) onfinish();
+	};
+
+	var onfinish = function() {
+		writable = false;
+		if (!readable) callback.call(stream);
+	};
+
+	var onend = function() {
+		readable = false;
+		if (!writable) callback.call(stream);
+	};
+
+	var onexit = function(exitCode) {
+		callback.call(stream, exitCode ? new Error(&#x27;exited with error code: &#x27; + exitCode) : null);
+	};
+
+	var onclose = function() {
+		if (readable &#x26;&#x26; !(rs &#x26;&#x26; rs.ended)) return callback.call(stream, new Error(&#x27;premature close&#x27;));
+		if (writable &#x26;&#x26; !(ws &#x26;&#x26; ws.ended)) return callback.call(stream, new Error(&#x27;premature close&#x27;));
+	};
+
+	var onrequest = function() {
+		stream.req.on(&#x27;finish&#x27;, onfinish);
+	};
+
+	if (isRequest(stream)) {
+		stream.on(&#x27;complete&#x27;, onfinish);
+		stream.on(&#x27;abort&#x27;, onclose);
+		if (stream.req) onrequest();
+		else stream.on(&#x27;request&#x27;, onrequest);
+	} else if (writable &#x26;&#x26; !ws) { // legacy streams
+		stream.on(&#x27;end&#x27;, onlegacyfinish);
+		stream.on(&#x27;close&#x27;, onlegacyfinish);
+	}
+
+	if (isChildProcess(stream)) stream.on(&#x27;exit&#x27;, onexit);
+
+	stream.on(&#x27;end&#x27;, onend);
+	stream.on(&#x27;finish&#x27;, onfinish);
+	if (opts.error !== false) stream.on(&#x27;error&#x27;, callback);
+	stream.on(&#x27;close&#x27;, onclose);
+
+	return function() {
+		stream.removeListener(&#x27;complete&#x27;, onfinish);
+		stream.removeListener(&#x27;abort&#x27;, onclose);
+		stream.removeListener(&#x27;request&#x27;, onrequest);
+		if (stream.req) stream.req.removeListener(&#x27;finish&#x27;, onfinish);
+		stream.removeListener(&#x27;end&#x27;, onlegacyfinish);
+		stream.removeListener(&#x27;close&#x27;, onlegacyfinish);
+		stream.removeListener(&#x27;finish&#x27;, onfinish);
+		stream.removeListener(&#x27;exit&#x27;, onexit);
+		stream.removeListener(&#x27;end&#x27;, onend);
+		stream.removeListener(&#x27;error&#x27;, callback);
+		stream.removeListener(&#x27;close&#x27;, onclose);
+	};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
